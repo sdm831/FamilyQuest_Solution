@@ -1,5 +1,21 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<form method="post">
+    @*Задать размер приветственной картинки*@
+    <div>
+        <img class="card-img-top" width="30" height="200" src="https://klike.net/uploads/posts/2019-02/1550472288_1.jpg" alt="Приветствие" />
+    </div>
 
+    @*Лейбл "представьтесь"*@
+    <div class="text-center">
+        <h5>Введите ваше имя</h5>
+    </div>
 
+    @*Поле ввода имени*@
+    <div class="text-center">
+        <input class="form-control" type="text" name="userName" value="login" />
+    </div>
+
+    @*Кнопка "вперед"*@
+    <div>
+        <button class="btn btn-success" type="submit" asp-controller="Welcome" asp-action="Login">Войти</button>
+    </div>
+</form>
