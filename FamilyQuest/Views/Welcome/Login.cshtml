@@ -1,12 +1,36 @@
 ﻿@model User
 
-<div class="row">
-    <img class="card-img-top" src="https://ds05.infourok.ru/uploads/ex/0be1/000d7960-b82ecb3b/hello_html_m2f5de52c.jpg" alt="Приветствие" />
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-8">
+            <img width="100%" src="https://ds05.infourok.ru/uploads/ex/0be1/000d7960-b82ecb3b/hello_html_m2f5de52c.jpg" alt="Приветствие" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-8" align="center">
+            <h5>Привет @Model.UserName<br></h5>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-8" align="center">
+            <p>
+                Правила прохождения квеста:<br>
+                1. Честно выполнять задания.<br>
+                2. Не жульничать.<br>
+                3. Ответ вводить в специальное поле под заданием.<br>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center">
+        <div class="col-sm-8" align="center">
+            @*<button class="btn btn-success" type="submit" asp-controller="Home" asp-action="Index">Start</button>*@
+            <a class="btn btn-success" href="/home/index" role="button">Start</a>
+        </div>
+    </div>
 </div>
 
-@*"Привет ИмяПользователя"*@
-<h5>Привет @Model.UserName</h5>
 
-@*Правила/описание*@
-
-@*Кнопка "Начать"*@

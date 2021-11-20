@@ -1,21 +1,27 @@
-﻿<form method="post">
-    @*Задать размер приветственной картинки*@
-    <div>
-        <img class="card-img-top" width="30" height="200" src="https://klike.net/uploads/posts/2019-02/1550472288_1.jpg" alt="Приветствие" />
-    </div>
+﻿<form method="post">    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-8">
+                <img width="100%" src="https://klike.net/uploads/posts/2019-02/1550472288_1.jpg" alt="Приветствие" />
+            </div>
+        </div>
 
-    @*Лейбл "представьтесь"*@
-    <div class="text-center">
-        <h5>Введите ваше имя</h5>
-    </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-8" align="center">
+                <h5>Введите ваше имя</h5>
+            </div>
+        </div>
 
-    @*Поле ввода имени*@
-    <div class="text-center">
-        <input class="form-control" type="text" name="userName" value="login" />
-    </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-8">
+                <input class="form-control" type="text" name="userName" />
+            </div>
+        </div>
 
-    @*Кнопка "вперед"*@
-    <div>
-        <button class="btn btn-success" type="submit" asp-controller="Welcome" asp-action="Login">Войти</button>
-    </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-8" align="center">
+                <button class="btn btn-success" type="submit" asp-controller="Welcome" asp-action="Login">Войти</button>
+            </div>
+        </div>
+    </div>    
 </form>
