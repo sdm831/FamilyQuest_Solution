@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace FamilyQuest.Models
+{
+    public class Exercise
+    {
+        public Exercise(string userId)
+        {            
+            UserId = userId ?? throw new ArgumentNullException(nameof(userId));
+        }
+
+        public Guid Id { get; }
+        public string Name { get; set; }
+        public string Question { get; set; }
+        public string Answer { get; set; }
+        public string TrueAnswer { get; set; }
+        public string ImagePath { get; set; }
+        public string UserId { get; }
+        public string Description { get; set; }
+    }
+}
