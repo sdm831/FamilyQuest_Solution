@@ -1,0 +1,32 @@
+﻿<form method="post">
+    <div>
+        <h3>Вход</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-3 text-center">
+            <input class="form-control" type="text" name="username" value="login" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3 text-center">
+            <input class="form-control" type="password" name="password" value="password" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            <label>Запомнить меня</label>
+            <input type="checkbox" name="rememberMe" />
+        </div>
+    </div>
+
+    <div>
+        <button class="btn btn-success" type="submit" asp-controller="Account" asp-action="Login">Войти</button>
+    </div>
+
+    <div>                
+        <a asp-controller="Account" asp-action="Register">Регистрация</a>
+    </div>
+</form>

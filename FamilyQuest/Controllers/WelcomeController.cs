@@ -9,9 +9,10 @@ namespace FamilyQuest.Controllers
 {
     public class WelcomeController : Controller
     {
-        public IActionResult Login(User userName)
+        [HttpPost]
+        public IActionResult Login(User user)
         {
-            return View(userName);
+            return View(user);
         }
 
         //public IActionResult Login(User user)

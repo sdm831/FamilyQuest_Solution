@@ -7,13 +7,19 @@ namespace FamilyQuest.Models
 {
     public class User
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
+        public Guid Id { get; }
+        public string UserName { get; set; }
 
-        public User(string userName)
+        public User()
+        {
+            UserName = "Djon";
+        }
+
+        public User(string username)
         {
             Id = Guid.NewGuid();
-            Name = userName;
+            UserName = username;
         }
+
     }
 }
