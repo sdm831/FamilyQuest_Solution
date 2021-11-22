@@ -10,7 +10,7 @@ namespace FamilyQuest.Models
         public Guid Id { get;  }
         public string GameName { get; set; }
         public string ClientName { get; set; }
-        public string UserId { get; }
-        public List<Exercise> exercises { get; set; }
+        public string UserId { get; set; }
+        public List<Exercise> Exercises { get; set; }
     }
 }

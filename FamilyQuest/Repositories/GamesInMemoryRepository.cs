@@ -10,12 +10,22 @@ namespace FamilyQuest.Repositories
     {
         private List<Game> games = new List<Game>();
 
-        public void Add(Game game)
+        public List<Game> GetAllGame()
         {
-            throw new NotImplementedException();
+            return games;
         }
 
-        public List<Game> GetAll()
+        public Game TryGetById(Guid id)
+        {
+            return games.FirstOrDefault(x => x.Id == id);
+        }
+        
+        public void AddGame(Game game)
+        {
+            throw new NotImplementedException();
+        }                
+
+        public void DeleteGame(Guid id)
         {
             throw new NotImplementedException();
         }

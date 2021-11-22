@@ -22,6 +22,11 @@ namespace FamilyQuest
         public List<Exercise> GetAll()
         {
             return exercises;
-        }        
+        }
+
+        public Exercise TryGetById(Guid id)
+        {
+            return exercises.FirstOrDefault(x => x.Id == id);
+        }
     }
 }

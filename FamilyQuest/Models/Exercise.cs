@@ -14,11 +14,11 @@ namespace FamilyQuest.Models
 
         public Guid Id { get; }
         public string Name { get; set; }
+        public string UserId { get; }
         public string Question { get; set; }
         public string Answer { get; set; }
         public string TrueAnswer { get; set; }
         public string ImagePath { get; set; }
-        public string UserId { get; }
         public string Description { get; set; }
     }
 }
