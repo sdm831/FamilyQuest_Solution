@@ -10,14 +10,22 @@ namespace FamilyQuest
     {
         private List<Exercise> exercises = new List<Exercise>()
         {
-            new Exercise("UserId-1"),
-            new Exercise("UserId-2")
+            new Exercise("UserId-1", "name-1"),
+            new Exercise("UserId-1", "name-2"),
+            new Exercise("UserId-1", "name-3"),
+            new Exercise("UserId-2", "name-1"),
+            new Exercise("UserId-2", "name-2")
         };
 
         public void Add(Exercise exercise)
         {
             exercises.Add(exercise);
         }
+
+        //public void Delete(Guid id)
+        //{
+        //    exercises.Remove();
+        //}
 
         public List<Exercise> GetAll()
         {

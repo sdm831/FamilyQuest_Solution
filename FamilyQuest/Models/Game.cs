@@ -7,6 +7,13 @@ namespace FamilyQuest.Models
 {
     public class Game
     {
+        public Game(Guid id, string gameName, string userId)
+        {
+            Id = id;
+            GameName = gameName;
+            UserId = userId;
+        }
+
         public Guid Id { get;  }
         public string GameName { get; set; }
         public string ClientName { get; set; }

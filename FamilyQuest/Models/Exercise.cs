@@ -7,9 +7,17 @@ namespace FamilyQuest.Models
 {
     public class Exercise
     {
-        public Exercise(string userId)
-        {            
+        //public Exercise(string userId)
+        //{
+        //    Id = Guid.NewGuid();
+        //    UserId = userId ?? throw new ArgumentNullException(nameof(userId));
+        //}
+
+        public Exercise(string userId, string name)
+        {
+            Id = Guid.NewGuid();
             UserId = userId ?? throw new ArgumentNullException(nameof(userId));
+            Name = name;
         }
 
         public Guid Id { get; }

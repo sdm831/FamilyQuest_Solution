@@ -1,15 +1,20 @@
-﻿@*@await Html.PartialAsync("TopMenu")*@
+﻿@model List<Exercise>
 
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <a asp-controller="game" asp-action="index">Games</a>
-        </div>
-        <div class="col">
-            <a asp-controller="exercise" asp-action="index">Exercise</a>
-        </div>
-    </div>
-</div>
+@await Html.PartialAsync("GameMenu")
 
 <h3>Exersises</h3>
+
+@foreach (var item in Model) 
+{ 
+<div class="row">
+    <div class="col-2">
+        @item.Id
+    </div>
+    <div class="col-2">
+        @item.Name
+    </div>
+    <div class="col-2">
+        @item.UserId
+    </div>
+</div>
+}
