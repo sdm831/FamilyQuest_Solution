@@ -1,3 +1,4 @@
+using FamilyQuest.Models;
 using FamilyQuest.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +28,9 @@ namespace FamilyQuest
             services.AddSingleton<IUsersRepository, UsersInMemoryRepository>();
             services.AddSingleton<IExercisesRepository, ExercisesInMemoryRepository>();
             services.AddSingleton<IGamesRepository, GamesInMemoryRepository>();
-            
+            services.Add(new ServiceDescriptor(typeof(GameDbContext), new GameDbContext(Configuration.GetConnectionString()));
+            //services.Add(new ServiceDescriptor(typeof(GameDbContext), new GameDbContext(Configuration.GetConnectionString("DefaultConnection"))));
+
             services.AddControllersWithViews();
         }
 

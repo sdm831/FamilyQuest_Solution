@@ -13,16 +13,19 @@ namespace FamilyQuest.Models
         //    UserId = userId ?? throw new ArgumentNullException(nameof(userId));
         //}
 
-        public Exercise(string userId, string name)
+        public Exercise(/*int id, string userId, string name*/)
         {
-            Id = Guid.NewGuid();
-            UserId = userId ?? throw new ArgumentNullException(nameof(userId));
-            Name = name;
+            //Id = Guid.NewGuid();
+            //Id = id;
+            //UserId = userId ?? throw new ArgumentNullException(nameof(userId));
+            //Name = name;
         }
 
-        public Guid Id { get; }
+        private GameDbContext context;
+        //public Guid Id { get; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public string UserId { get; }
+        public string UserId { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
         public string TrueAnswer { get; set; }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FamilyQuest.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,12 @@ namespace FamilyQuest.Controllers
         
         public IActionResult Index()
         {
-            var exercises = exercisesRepository.GetAll();
-            return View(exercises);
+            GameDbContext context = HttpContext.RequestServices.GetService(typeof(FamilyQuest.Models.GameDbContext)) as GameDbContext;
+
+            return View(context.GetAllExercise());
+            
+            //var exercises = exercisesRepository.GetAll();
+            //return View(exercises);
         }
     }
 }

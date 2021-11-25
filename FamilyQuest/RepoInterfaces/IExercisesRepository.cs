@@ -8,7 +8,7 @@ namespace FamilyQuest
     public interface IExercisesRepository
     {
         List<Exercise> GetAll();
-        Exercise TryGetById(Guid id);
+        Exercise TryGetById(/*Guid*/int id);
         void Add(Exercise exercise);
     }
 }
