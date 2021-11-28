@@ -8,14 +8,7 @@ using System.Threading.Tasks;
 namespace FamilyQuest.Controllers
 {
     public class TaskPointController : Controller
-    {
-        //private readonly ITaskPointsRepository TaskPointsRepository;
-        //
-        //public TaskPointController(ITaskPointsRepository TaskPointsRepository)
-        //{
-        //    this.TaskPointsRepository = TaskPointsRepository;
-        //}
-        
+    {        
         public IActionResult Index()
         {
             GameDbContext context = HttpContext.RequestServices.GetService(typeof(FamilyQuest.Models.GameDbContext)) as GameDbContext;

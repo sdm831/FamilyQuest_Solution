@@ -54,7 +54,7 @@ namespace FamilyQuest.Models
                     $"INSERT INTO `db-quest-test-1`.TaskPoints " +
                     $"(Name, Description, AuthorId, Question, Answer, ImagePath, Share) " +
                     $"VALUES('{point.Name}', '{point.Description}', {point.AuthorId}, " +
-                    $"'{point.Question}', '{point.Answer}', '{point.ImagePath}', {point.Share}); ", conn);
+                    $"'{point.Question}', '{point.Answer}', '{point.ImagePath}', '{point.Share}'); ", conn);
 
                 using (var reader = cmd.ExecuteReader()) { }
             }

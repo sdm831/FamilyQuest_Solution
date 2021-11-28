@@ -8,7 +8,7 @@ namespace FamilyQuest
     public interface ITaskPointsRepository
     {
         List<TaskPoint> GetAll();
-        TaskPoint TryGetById(/*Guid*/int id);
+        TaskPoint TryGetById(int id);
         void Add(TaskPoint exercise);
     }
 }

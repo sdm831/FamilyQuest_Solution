@@ -14,7 +14,7 @@ namespace FamilyQuest.Models
         public string Question { get; set; }
         public string Answer { get; set; }
         public string ImagePath { get; set; }
-        public int Share { get; set; }
+        public char Share { get; set; }
 
         public string UserAnswer { get; set; }
     }

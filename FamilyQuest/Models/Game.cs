@@ -7,11 +7,8 @@ namespace FamilyQuest.Models
 {
     public class Game
     {
-        public Game(/*int id, string gameName, User userId*/)
-        {
-            //Id = id;
-            //GameName = gameName;
-            //UserId = userId;
+        public Game()
+        {            
         }
 
         public int Id { get; set; }
