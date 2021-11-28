@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FamilyQuest
 {
-    public class ExercisesInMemoryRepository : IExercisesRepository
+    public class TaskPointsInMemoryRepository : ITaskPointsRepository
     {
-        private List<Exercise> exercises = new List<Exercise>()
+        private List<TaskPoint> taskPoints = new List<TaskPoint>()
         {
         //    new Exercise("UserId-1", "name-1"),
         //    new Exercise("UserId-1", "name-2"),
@@ -17,9 +17,9 @@ namespace FamilyQuest
         //    new Exercise("UserId-2", "name-2")
         };
 
-        public void Add(Exercise exercise)
+        public void Add(TaskPoint taskPoint)
         {
-            exercises.Add(exercise);
+            taskPoints.Add(taskPoint);
         }
 
         //public void Delete(Guid id)
@@ -27,14 +27,14 @@ namespace FamilyQuest
         //    exercises.Remove();
         //}
 
-        public List<Exercise> GetAll()
+        public List<TaskPoint> GetAll()
         {
-            return exercises;
+            return taskPoints;
         }
 
-        public Exercise TryGetById(/*Guid*/int id)
+        public TaskPoint TryGetById(/*Guid*/int id)
         {
-            return exercises.FirstOrDefault(x => x.Id == id);
+            return taskPoints.FirstOrDefault(x => x.Id == id);
         }
     }
 }

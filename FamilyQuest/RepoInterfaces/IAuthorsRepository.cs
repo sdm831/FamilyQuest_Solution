@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace FamilyQuest
 {
-    public interface IUsersRepository
+    public interface IAuthorsRepository
     {
-        List<User> GetAll();
+        List<Author> GetAll();
 
-        public void Add(User user);
+        public void Add(Author author);
     }
 }

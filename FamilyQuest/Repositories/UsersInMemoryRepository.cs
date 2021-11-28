@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace FamilyQuest
 {
-    public class UsersInMemoryRepository : IUsersRepository
+    public class UsersInMemoryRepository : IAuthorsRepository
     {
         //private List
-        public void Add(User user)
+        public void Add(Author user)
         {
             throw new NotImplementedException();
         }
 
-        public List<User> GetAll()
+        public List<Author> GetAll()
         {
             throw new NotImplementedException();
         }

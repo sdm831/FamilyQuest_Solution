@@ -15,7 +15,7 @@ namespace FamilyQuest.Repositories
             return games;
         }
 
-        public Game TryGetById(Guid id)
+        public Game TryGetById(int id)
         {
             return games.FirstOrDefault(x => x.Id == id);
         }
@@ -25,7 +25,7 @@ namespace FamilyQuest.Repositories
             throw new NotImplementedException();
         }                
 
-        public void DeleteGame(Guid id)
+        public void DeleteGame(int id)
         {
             throw new NotImplementedException();
         }

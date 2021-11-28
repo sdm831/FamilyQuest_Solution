@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace FamilyQuest.Models
 {
     public class GameDbContext
-    {
+    {        
         public string ConnectionString { get; set; }
 
         public GameDbContext(string connectionString)
@@ -20,27 +20,64 @@ namespace FamilyQuest.Models
             return new MySqlConnection(ConnectionString);
         }
 
-        public List<Exercise> GetAllExercise()
+        public List<TaskPoint> GetAllTaskPoints()
         {
-            List<Exercise> list = new List<Exercise>();
+            List<TaskPoint> list = new List<TaskPoint>();
 
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("select * from TaskPoints", conn);
+                MySqlCommand cmd = new MySqlCommand("select Id, Name, AuthorId from TaskPoints", conn);
 
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        list.Add(new Exercise()
+                        list.Add(new TaskPoint()
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Name = reader["Name"].ToString(),
-                            UserId = "dfg"
-                            //ArtistName = reader["ArtistName"].ToString(),
-                            //Price = Convert.ToInt32(reader["Price"]),
-                            //Genre = reader["genre"].ToString()
+                            AuthorId = Convert.ToInt32(reader["AuthorId"])                            
+                        });
+                    }
+                }
+            }
+            return list;
+        }
+
+        public void AddNewTaskPoint(TaskPoint point)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(
+                    $"INSERT INTO `db-quest-test-1`.TaskPoints " +
+                    $"(Name, Description, AuthorId, Question, Answer, ImagePath, Share) " +
+                    $"VALUES('{point.Name}', '{point.Description}', {point.AuthorId}, " +
+                    $"'{point.Question}', '{point.Answer}', '{point.ImagePath}', {point.Share}); ", conn);
+
+                using (var reader = cmd.ExecuteReader()) { }
+            }
+        }
+
+        public List<Game> GetAllGames()
+        {
+            List<Game> list = new List<Game>();
+
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("select Id, Name, AuthorId from Games", conn);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        list.Add(new Game()
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Name = reader["Name"].ToString(),
+                            AuthorId = Convert.ToInt32(reader["AuthorId"])
                         });
                     }
                 }

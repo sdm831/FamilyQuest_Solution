@@ -8,10 +8,10 @@ namespace FamilyQuest
     public interface IGamesRepository
     {
         List<Game> GetAllGame();
-        Game TryGetById(Guid id);
+        Game TryGetById(int id);
 
         void AddGame(Game game);
 
-        void DeleteGame(Guid id);
+        void DeleteGame(int id);
     }
 }

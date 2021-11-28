@@ -25,11 +25,11 @@ namespace FamilyQuest
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IUsersRepository, UsersInMemoryRepository>();
-            services.AddSingleton<IExercisesRepository, ExercisesInMemoryRepository>();
-            services.AddSingleton<IGamesRepository, GamesInMemoryRepository>();
-            services.Add(new ServiceDescriptor(typeof(GameDbContext), new GameDbContext(Configuration.GetConnectionString()));
-            //services.Add(new ServiceDescriptor(typeof(GameDbContext), new GameDbContext(Configuration.GetConnectionString("DefaultConnection"))));
+            services.AddSingleton<IAuthorsRepository, UsersInMemoryRepository>();
+            //services.AddSingleton<ITaskPointsRepository, TaskPointsInMemoryRepository>();            
+            //services.AddSingleton<IGamesRepository, GamesInMemoryRepository>();
+            services.AddSingleton<ISqlRepository, SqlInMemoryRepository>();
+            services.Add(new ServiceDescriptor(typeof(GameDbContext), new GameDbContext(Configuration.GetConnectionString("DefaultConnection"))));
 
             services.AddControllersWithViews();
         }

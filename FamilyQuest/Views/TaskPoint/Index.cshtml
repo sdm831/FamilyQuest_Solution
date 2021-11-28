@@ -1,0 +1,39 @@
+﻿@model List<TaskPoint>
+
+@await Html.PartialAsync("GameMenu")
+
+<div class="row">
+    <div class="col-2">
+        <h3>Задания</h3>
+    </div>
+    <div class="col-sm-8" align="center">        
+        <a class="btn btn-success" asp-controller="TaskPoint" asp-action="Add">Добавить задание</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        Номер задания
+    </div>
+    <div class="col-2">
+        Название
+    </div>
+    <div class="col-2">
+        Автор
+    </div>
+</div>
+
+@foreach (var item in Model) 
+{ 
+<div class="row">
+    <div class="col-2">
+        @item.Id
+    </div>
+    <div class="col-2">
+        @item.Name
+    </div>
+    <div class="col-2">
+        @item.AuthorId
+    </div>
+</div>
+}

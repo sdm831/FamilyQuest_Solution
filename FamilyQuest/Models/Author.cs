@@ -5,20 +5,20 @@ using System.Threading.Tasks;
 
 namespace FamilyQuest.Models
 {
-    public class User
+    public class Author
     {
         public Guid Id { get; }
-        public string UserName { get; set; }
+        public string Name { get; set; }
 
-        public User()
+        public Author()
         {
-            UserName = "Djon";
+            Name = "Djon";
         }
 
-        public User(string username)
+        public Author(string name)
         {
             Id = Guid.NewGuid();
-            UserName = username;
+            Name = name;
         }
 
     }

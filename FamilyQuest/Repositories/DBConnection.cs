@@ -10,7 +10,6 @@ namespace FamilyQuest.Repositories
     {
         private DBConnection()
         {
-
         }
 
         public string Server { get; set; }
@@ -34,11 +33,10 @@ namespace FamilyQuest.Repositories
             {
                 if (String.IsNullOrEmpty(DataBaseName))
                     return false;
-                string connstring = string.Format("Server={0}; database={1}; UID={2}; password={3}", Server, DataBaseName, UserName, Password);
+                string connstring = string.Format($"Server={Server}; database={DataBaseName}; UID={UserName}; password={Password}");
                 Connection = new MySqlConnection(connstring);
                 Connection.Open();
             }
-
             return true;
         }
 
