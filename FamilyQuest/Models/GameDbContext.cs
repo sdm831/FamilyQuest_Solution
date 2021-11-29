@@ -46,6 +46,23 @@ namespace FamilyQuest.Models
             return list;
         }
 
+        public bool AddAuthor(Register register)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(
+                    $"INSERT INTO `db-quest-test-1`.Authors " +
+                    $"(Name, Password) " +
+                    $"VALUES('{register.Name}', '{register.Password}'); ", conn);
+
+                using (var reader = cmd.ExecuteReader()) 
+                {
+                }
+            }
+            return true;
+        }
+
         public void AddNewTaskPoint(TaskPoint point)
         {
             using (MySqlConnection conn = GetConnection())

@@ -20,7 +20,12 @@ namespace Stepik_ASP_Core_MVC_course.Controllers
             {
                 return RedirectToAction("Index", "Game");
             }
-            return RedirectToAction("Fail", "Account");
+            return RedirectToAction("LoginFail", "Account");
+        }
+
+        public IActionResult LoginFail()
+        {
+            return View();
         }
 
         public IActionResult Register()
@@ -31,12 +36,13 @@ namespace Stepik_ASP_Core_MVC_course.Controllers
         [HttpPost]
         public IActionResult Register(Register register)
         {
-            return RedirectToAction("Index", "Home");
-        }
+            GameDbContext context = HttpContext.RequestServices.GetService(typeof(FamilyQuest.Models.GameDbContext)) as GameDbContext;
 
-        public IActionResult Fail()
-        {
-            return View();
+            if (context.AddAuthor(register))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("FailRegister", "Account");                                    
         }
     }
 }
