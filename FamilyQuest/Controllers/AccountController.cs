@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FamilyQuest.Models;
+using Microsoft.AspNetCore.Mvc;
 using Stepik_ASP_Core_MVC_course.Models;
 
 namespace Stepik_ASP_Core_MVC_course.Controllers
@@ -13,7 +14,13 @@ namespace Stepik_ASP_Core_MVC_course.Controllers
         [HttpPost]
         public IActionResult Login(Login login)
         {
-            return RedirectToAction("Index", "Home");
+            GameDbContext context = HttpContext.RequestServices.GetService(typeof(FamilyQuest.Models.GameDbContext)) as GameDbContext;
+
+            if (context.GetUser(login))
+            {
+                return RedirectToAction("Index", "Game");
+            }
+            return RedirectToAction("Fail", "Account");
         }
 
         public IActionResult Register()
@@ -25,6 +32,11 @@ namespace Stepik_ASP_Core_MVC_course.Controllers
         public IActionResult Register(Register register)
         {
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Fail()
+        {
+            return View();
         }
     }
 }

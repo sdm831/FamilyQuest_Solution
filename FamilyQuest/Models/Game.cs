@@ -13,8 +13,10 @@ namespace FamilyQuest.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public int AuthorId { get; set; }
+        public string GamerName { get; set; }
         public int GamerId { get; set; }
+        public int AuthorId { get; set; }
+
         public string ImagePath { get; set; }
         public bool Share { get; set; }                
     }

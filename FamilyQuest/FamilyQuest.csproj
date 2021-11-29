@@ -11,4 +11,6 @@
     <PackageReference Include="MySql.Data" Version="8.0.27" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 </Project>

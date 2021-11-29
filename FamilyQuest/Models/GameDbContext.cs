@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Stepik_ASP_Core_MVC_course.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,6 +58,28 @@ namespace FamilyQuest.Models
                     $"'{point.Question}', '{point.Answer}', '{point.ImagePath}', '{point.Share}'); ", conn);
 
                 using (var reader = cmd.ExecuteReader()) { }
+            }
+        }
+
+        internal bool GetUser(Login login)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"select count(*) cnt from `db-quest-test-1`.Authors " +
+                    $"where name = '{login.Name}' and password = '{login.Password}'", conn);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (Convert.ToInt32(reader["cnt"]) == 1)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
             }
         }
 
