@@ -1,11 +1,13 @@
-﻿<form method="post">
+﻿@await Html.PartialAsync("GameMenu")
+
+<form method="post">
     <div>
-        <h3>Новое Задание</h3>
+        <h3>Новая игра</h3>
     </div>
 
     <div class="row">
         <div class="col-2">
-            <label>Название задания:</label>
+            <label>Название игры:</label>
         </div>
         <div class="col-2">
             <input class="form-control" type="text" name="name" />
@@ -14,7 +16,7 @@
 
     <div class="row">
         <div class="col-2">
-            <label>Описание задания:</label>
+            <label>Описание игры:</label>
         </div>
         <div class="col-2">
             <input class="form-control" type="text" name="description" />
@@ -23,22 +25,13 @@
 
     <div class="row">
         <div class="col-2">
-            <label>Вопрос:</label>
+            <label>Описание игры:</label>
         </div>
         <div class="col-2">
-            <input class="form-control" type="text" name="question" />
+            <input class="form-control" type="text" name="description" />
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-2">
-            <label>Ответ:</label>
-        </div>
-        <div class="col-2">
-            <input class="form-control" type="text" name="answer" />
-        </div>
-    </div>
-
+    
     <div class="row">
         <div class="col-2">
             <label>Ссылка на картинку:</label>
@@ -46,9 +39,18 @@
         <div class="col-2">
             <input class="form-control" type="text" name="ImagePath" />
         </div>
+    </div>    
+
+    <div class="row">
+        <div class="col-2">
+            <label>Доступно всем:</label>
+        </div>
+        <div class="col-2">
+            <input class="form-check-input" type="checkbox" name="Share" checked enabled>
+        </div>
     </div>
 
     <div>
-        <button class="btn btn-success" type="submit" asp-controller="TaskPoint" asp-action="Add">Добавить</button>
+        <button class="btn btn-success" type="submit" asp-controller="Game" asp-action="Add">Добавить</button>
     </div>
 </form>
