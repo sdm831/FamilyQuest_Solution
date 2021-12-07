@@ -12,6 +12,8 @@
 </div>
 
 <div class="row">
+    <div class="col-1"></div>
+    <div class="col-1"></div>
     <div class="col-2">
         Номер задания
     </div>
@@ -26,6 +28,9 @@
 @foreach (var item in Model) 
 { 
 <div class="row">
+    <div class="col-1">        
+        <a class="btn btn-success" asp-controller="TaskPoint" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+    </div>
     <div class="col-2">
         @item.Id
     </div>
@@ -34,6 +39,9 @@
     </div>
     <div class="col-2">
         @item.AuthorId
+    </div>
+    <div class="col-1">        
+        <a class="btn btn-danger" asp-controller="TaskPoint" asp-action="Delete" asp-route-id="@item.Id">Del</a>
     </div>
 </div>
 }

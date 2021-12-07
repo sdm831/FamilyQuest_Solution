@@ -10,7 +10,7 @@ namespace FamilyQuest.Models
     public class GameDbContext
     {        
         public string ConnectionString { get; set; }
-
+        
         public GameDbContext(string connectionString)
         {
             this.ConnectionString = connectionString;
@@ -44,6 +44,52 @@ namespace FamilyQuest.Models
                 }
             }
             return list;
+        }
+
+        internal TaskPoint GetTaskPointById(int id)
+        {
+            var tp = new TaskPoint();
+
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand($"select * from TaskPoints where id = {id}", conn);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        tp.Id = id;
+                        tp.AuthorId = Convert.ToInt32(reader["AuthorId"]);
+                        tp.Name = reader["Name"].ToString();
+                        tp.ImagePath = reader["ImagePath"].ToString();
+                        tp.Question = reader["Question"].ToString();
+                        tp.Answer = reader["Answer"].ToString();
+                        tp.Description = reader["Description"].ToString();
+                    }
+                }
+            }
+            return tp;
+        }
+
+        internal void EditTaskPoint(TaskPoint point)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void DeleteTaskPoint(int id)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(
+                    $"DELETE FROM `db-quest-test-1`.TaskPoints " +
+                    $"WHERE id = {id};", conn);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                }
+            }            
         }
 
         public bool AddAuthor(Register register)

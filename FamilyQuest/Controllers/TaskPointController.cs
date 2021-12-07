@@ -28,5 +28,27 @@ namespace FamilyQuest.Controllers
             context.AddNewTaskPoint(point);
             return RedirectToAction("Index", "TaskPoint");
         }
+
+        public IActionResult Delete(int id)
+        {
+            GameDbContext context = HttpContext.RequestServices.GetService(typeof(FamilyQuest.Models.GameDbContext)) as GameDbContext;
+            context.DeleteTaskPoint(id); 
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            GameDbContext context = HttpContext.RequestServices.GetService(typeof(FamilyQuest.Models.GameDbContext)) as GameDbContext;
+             
+            return View(context.GetTaskPointById(id));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(TaskPoint point)
+        {
+            GameDbContext context = HttpContext.RequestServices.GetService(typeof(FamilyQuest.Models.GameDbContext)) as GameDbContext;
+            context.EditTaskPoint(point);
+            return RedirectToAction("Index", "TaskPoint");
+        }
     }
 }
