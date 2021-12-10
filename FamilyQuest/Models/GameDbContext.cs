@@ -74,7 +74,21 @@ namespace FamilyQuest.Models
 
         internal void EditTaskPoint(TaskPoint point)
         {
-            throw new NotImplementedException();
+            string sql = 
+                $"UPDATE `db-quest-test-1`.TaskPoints "+
+                $"SET Name = '{point.Name}', Description = '{point.Description}', AuthorId = {point.AuthorId}, Question = '{point.Question}', " +
+                $"Answer = '{point.Answer}', ImagePath = '{point.ImagePath}' " +
+                $"WHERE Id = {point.Id}; ";
+
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                }
+            }
         }
 
         internal void DeleteTaskPoint(int id)
